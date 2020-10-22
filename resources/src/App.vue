@@ -12,13 +12,13 @@
             + Note Baru
           </button>
 
-          <listNotes :propEditNote="editNote" />
+          <listNotes />
       </div>
       <!-- List -->
     
     </div>
     <div class="kanan">
-        <formNotes :propSaveNote="saveNote" :propUpdateNote="updateNote"/>
+        <formNotes :propSaveNote="saveNote" />
         <!-- FORM -->
     </div>
 
@@ -57,13 +57,6 @@ export default {
 
       this.notes.push(newNote);
       this.editNote(newId);
-    },
-    updateNote(id, title, description){
-
-      let noteIndex = this.notes.findIndex(note => note.id === id);
-
-      this.notes[noteIndex].title = title;
-      this.notes[noteIndex].description = description;
     }
 
   }
