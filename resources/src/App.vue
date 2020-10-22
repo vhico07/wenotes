@@ -2,7 +2,7 @@
   <div id="app">
     <div class="kiri">
       <div class="logo">
-        <a href="https://wegodev.com">
+        <a href="https://github.com/vhico07">
           <h2>WeNotes</h2>
           <span>Notes</span>
         </a>
@@ -18,7 +18,7 @@
     
     </div>
     <div class="kanan">
-        <formNotes :propSaveNote="saveNote" />
+        <formNotes />
         <!-- FORM -->
     </div>
 
@@ -41,24 +41,9 @@ export default {
   methods: {
     newNote(){
       //kosongindulu
-      this.dataForm = {id: 0, title: '', description: ''}
-    },
-    saveNote(title, description){
-
-      let newId = 0;
-
-      if(this.notes.length === 0){
-          newId = 1;
-      }else{
-          newId= this.notes[this.notes.length - 1].id + 1;
-      }
-      
-      let newNote = {id:newId, 'title' : title, 'description' : description }
-
-      this.notes.push(newNote);
-      this.editNote(newId);
+      let dataForm = {id: 0, title: '', description: ''}
+      this.$root.$emit('emitForm', dataForm);
     }
-
   }
 }
 </script>
