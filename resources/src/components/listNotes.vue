@@ -33,6 +33,12 @@
                 let dataForm = this.notes.find(note => note.id === id);
                 this.$root.$emit('emitForm', dataForm);
             },
+        },
+        mounted(){
+            this.$root.$on('emitRemoveNote', data => {
+                let noteIndex = this.notes.findIndex(note => note.id === data.id);
+                this.notes.splice(noteIndex, 1);
+            })
         }
     }
 </script>
